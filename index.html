@@ -7,6 +7,13 @@
 
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+    .active{
+      background-color: #ff1f3d;
+      color: white;
+    }
+  </style>
 </head>
 <body>
 
@@ -18,10 +25,13 @@
         </a>
       </div>
       <div class="search">
-        <input class="rounded-lg px-2 " type="search" id="search" name="search" placeholder="Search">
+        <label class="input">
+          <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
+          <input id="search-input" type="search" required placeholder="Search"/>
+        </label>
       </div>
-      <div class="blogs">
-        <a href="blog.html"> <button class="btn bg-[#ff1f3d] text-white rounded-md">Blogs</button> </a>
+      <div class="sort_by_view">
+        <a href=""> <button class="btn bg-[#ff1f3d] text-white rounded-md">Sort by view</button> </a>
       </div>
     </nav>
 
@@ -29,12 +39,56 @@
 
   <nav id="button-category" class="flex py-5 justify-center gap-5">
     <div>
-      <button class="btn btn-sm bg-[#ff1f3d] text-white">All</button>
+      <button id="btn-all" onclick="loadVideos()" class="btn btn-sm ">All</button>
     </div>
   </nav>
 
-  <section id="video-container">
+  <section id="video-container" class="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 
+    <!-- <div class="card bg-base-100 ">
+      <figure class="relative">
+        <img
+          class="lg:w-80 lg:h-44"
+          src="https://i.ibb.co/L1b6xSq/shape.jpg"
+          alt="Shoes" />
+          <span class="absolute bottom-2 right-2 bg-slate-800 rounded-md text-white px-2 py-1">3h 56m ago</span>
+      </figure>
+      <div class=" flex gap-4 px-2 py-4">
+        <div class="profile">
+          <div class="avatar">
+            <div class="ring-primary ring-offset-base-100 w-10 rounded-full ring ring-offset-2">
+              <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+            </div>
+          </div>
+        </div>
+        <div class="info">
+          <h2 class="title text-lg font-semibold ">Shape of You</h2>
+          <p class="flex gap-2 items-center  text-sm font-semibold text-gray-500">Apolo Barua <img class="w-5 h-5" src="https://img.icons8.com/?size=48&id=SRJUuaAShjVD&format=png" alt=""></p>
+          <p class="views-title text-sm text-gray-500">91K views</p>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="flex flex-col justify-center items-center mx-auto col-span-full text-center py-20">
+      <img class="w-32" src="assets/Icon.png" alt="">
+      <h1 class="text-2xl font-bold">Oops!! Sorry, There is no video here</h1>
+    </div> -->
+
+  </section>
+
+  <section>
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_2.showModal()">open modal</button> -->
+    <dialog id="video_details" class="modal">
+      <div class="modal-box">
+       <div id="details-container">
+
+       </div>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
   </section>
   
 
